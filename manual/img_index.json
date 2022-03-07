@@ -1,0 +1,31 @@
+{
+  "alliance hub examples": {
+    "alliance hub examples 1": "imgs/alliance-hub-examples-1.png",
+    "alliance hub examples 2": "imgs/alliance-hub-examples-2.png"
+  },
+  "alliance hub": "imgs/alliance-hub.png",
+  "barcode": "imgs/barcode.png",
+  "barrier": "imgs/barrier.jpg",
+  "boxes": "imgs/boxes.png",
+  "capstone examples": {
+    "capstone examples": "imgs/capstone-examples.jpg"
+  },
+  "cargo": "imgs/cargo.png",
+  "carousel": "imgs/carousel.png",
+  "duck": "imgs/duck.png",
+  "field isometric": "imgs/field-isometric.jpg",
+  "field top": "imgs/field-top.png",
+  "freight": "imgs/freight.png",
+  "game flowchart": "imgs/game-flowchart.jpg",
+  "hubs": "imgs/hubs.jpg",
+  "randomization": "imgs/randomization.png",
+  "scoring summary": "imgs/scoring-summary.png",
+  "shared hub examples": {
+    "shared hub examples": "imgs/shared-hub-examples-1.jpg",
+    "shared hub examples 2": "imgs/shared-hub-examples-2.jpg"
+  },
+  "shared hub": "imgs/shared-hub.png",
+  "storage unit": "imgs/storage-unit.png",
+  "spatula": "imgs/spatula.png",
+  "warehouse": "imgs/warehouse.png"
+}
