@@ -83,7 +83,7 @@ class GameManual(app_commands.Group):
     @app_commands.command()
     @app_commands.describe(rule='The rule to grab from the game manual')
     async def rule(self, interaction: discord.Interaction, rule: str):
-        if rule in definitions:
+        if rule in rules:
             await interaction.response.send_message(f'**{rule}**: {rules[rule]}')
         else:
             await interaction.response.send_message(f'Rule {rule} not found')
