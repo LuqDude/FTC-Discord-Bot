@@ -19,6 +19,7 @@ URL = 'https://theorangealliance.org/api'
 
 seasons = {}
 season_choices = []
+teams = []
 
 
 class OrangeAlliance(app_commands.Group):
@@ -209,3 +210,28 @@ class OrangeAlliance(app_commands.Group):
         embed.add_field(name='Teams', value=teams, inline=True)
 
         await interaction.followup.send(embed=embed)
+
+    @app_commands.command()
+    @app_commands.describe(name='The team name to search for')
+    async def search(self, interaction: discord.Interaction, name: str):
+        global teams
+        await interaction.response.defer()
+        results = []
+        if not bool(teams):
+            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(force_close=True, ssl=False)) as cs:
+                async with cs.get(f'{URL}/team', headers=headers) as s:
+                    r = (await s.json())
+                    teams = r
+
+        for team in teams:
+            if name.lower() in str(team['team_name_short']).lower():
+                results.append(team)
+
+        if bool(results):
+            embed = discord.Embed(title=f'Search Results {min(10, len(results))}/{len(results)}',
+                                  description=f'{name} could refer to:')
+            for result in results[:10]:
+                embed.add_field(name=f'{result["team_key"]} - {result["team_name_short"]}', value='​', inline=False)
+            await interaction.followup.send(embed=embed)
+        else:
+            await interaction.followup.send(f'Could not find a team by the name {name}')
